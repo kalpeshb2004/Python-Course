@@ -1,2 +1,5 @@
 print("hello python")
 print("This is my first Pythom Program ")
+print("I am starting this beautiful python journey today")
+print("Date : 8 april 2026")
+print("Aim to complete in 3 months")
