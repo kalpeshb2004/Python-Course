@@ -28,3 +28,14 @@ print(t2)
 
 new_tpl = tuple(map(lambda x ,y : x+y,t1,t2))
 print("addition :" ,new_tpl)
+
+#repetition
+repeat_t1 = t1 * 3
+repeat_t2 = t2 * 4
+
+print(repeat_t1)
+print(repeat_t2)
+
+#in keyword
+print(2 in t1)
+print(5 in t2)
