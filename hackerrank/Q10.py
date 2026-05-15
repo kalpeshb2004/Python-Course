@@ -30,6 +30,7 @@ for _ in range(int(input())):
     name = input()
     score = float(input())
     student.append([name,score])
+    #s[0] name and s[1] score acc to append 
 
 grades = sorted(set(s[1] for s in student))
 second = grades[1]
