@@ -1,3 +1,4 @@
+#armstrong number checking
 n = int(input("Enter a number here: "))
 real_no = n
 temp = 0
