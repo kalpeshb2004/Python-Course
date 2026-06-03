@@ -2,7 +2,6 @@ n = int(input())
 data = []
 
 
-
 for i in range(0,n):
     command = input().split(' ') #it will take input like (insert 0 5) acc there index value
     if command[0] == "insert":
@@ -20,4 +19,6 @@ for i in range(0,n):
     elif command[0] == "reverse":
         data.reverse()
     else:
-        pass                            
+        pass     
+    
+                  
