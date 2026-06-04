@@ -1,4 +1,6 @@
-# perfect number
+# perfect number 
+#yesa no jiske factors ki sum o number aaye
+#ex = 6 , 1 +2+ 3 = 6
 
 n = int(input("Enter a number: "))
 temp = n

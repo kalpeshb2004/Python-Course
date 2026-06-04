@@ -1,5 +1,5 @@
 def mutate_string(string, position, character):
-    return string[:position] + character + string[position+1:] 
+    return string[:position] + character + string[position+1:] #
 
 # 5 tak character alag hua aur hamara char add hua
 # and then same 5 se chalu hua to hamara char insert hua replace nahi
