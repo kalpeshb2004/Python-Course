@@ -49,7 +49,7 @@
 # print(power1(2,3))
 
 5
-# #revesre string
+#revesre string
 # def rev_str(str):
 #     if len(str) <= 1:
 #         return str
