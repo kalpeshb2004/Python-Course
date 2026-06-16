@@ -15,3 +15,34 @@
 
 # std1.introduce()
 
+# P2 — Easy-Medium
+# BankAccount class banao. Attributes: owner, balance. Methods:
+# deposit(amount) → balance badhao
+# withdraw(amount) → balance ghataao (balance kam ho toh "Insufficient funds")
+# show_balance() → balance print karo
+
+# class bankAccount:
+#     def __init__(self,owner,balance):
+#         self.owner = owner
+#         self.balance = balance
+    
+#     def deposit(self,amount):
+#         self.balance += amount
+    
+#     def withdraw(self,amount):
+#         if amount <= self.balance:
+#             self.balance -= amount
+#         else:
+#             print("Insufficient funds")
+    
+#     def show_balance(self):
+#         print(f'balance: {self.balance}')
+
+# bal1 = bankAccount("kalpesh",100)
+
+# bal1.deposit(500)
+# bal1.withdraw(200)
+# bal1.show_balance()
+    
+
+
