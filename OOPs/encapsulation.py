@@ -28,29 +28,62 @@
 # withdraw(amount) → balance kam nahi hona chahiye
 # @property balance → balance return kare
 
-class BankAccount:
-    def __init__(self,balance):
-        self.__balance = balance
+# class BankAccount:
+#     def __init__(self,balance):
+#         self.__balance = balance
 
-    def deposit(self,ammount):
-        if ammount > 0:
-            self.__balance += ammount
-        else:
-            print("invalid ammount")
+#     def deposit(self,ammount):
+#         if ammount > 0:
+#             self.__balance += ammount
+#         else:
+#             print("invalid ammount")
 
-    def withdraw(self,ammount):
-        if ammount > self.__balance:
-            print("Insufficient funds!")
-        else:
-            self.__balance -= ammount
+#     def withdraw(self,ammount):
+#         if ammount > self.__balance:
+#             print("Insufficient funds!")
+#         else:
+#             self.__balance -= ammount
           
-    @property
-    def balance(self):
-        return self.__balance
+#     @property
+#     def balance(self):
+#         return self.__balance
     
-bank = BankAccount(4000)
-bank.deposit(1000)
-bank.withdraw(2000)
-print(bank.balance)
+# bank = BankAccount(4000)
+# bank.deposit(1000)
+# bank.withdraw(2000)
+# print(bank.balance)
 
+
+# P3 — Medium
+# Employee class — __salary private. @property use karo:
+# salary getter → return kare
+# salary setter → 0 se kam nahi ho sakta, 1000000 se zyada nahi
+# annual property → salary × 12
+
+
+# class employee:
+#     def __init__(self,salary):
+#         self.__salary = salary
+    
+#     @property
+#     def salary(self):
+#         return self.__salary
+    
+#     @salary.setter
+#     def salary(self,amount):
+#         if amount < 0 or amount > 1000000: 
+#             print("invalid salary")
+
+#     @property
+#     def ann_property(self):
+#         return self.__salary * 12
+
+# emp = employee(100000)
+# print(emp.salary)
+# emp.salary = -4000000
+# print(emp.ann_property)
+
+
+
+        
     
