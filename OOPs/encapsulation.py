@@ -21,3 +21,36 @@
 # p1.set_pass("2222")
 # print(p1.get_pass())
 
+
+# P2 — Medium
+# BankAccount class — __balance private. Methods:
+# deposit(amount) → amount > 0 tabhi add
+# withdraw(amount) → balance kam nahi hona chahiye
+# @property balance → balance return kare
+
+class BankAccount:
+    def __init__(self,balance):
+        self.__balance = balance
+
+    def deposit(self,ammount):
+        if ammount > 0:
+            self.__balance += ammount
+        else:
+            print("invalid ammount")
+
+    def withdraw(self,ammount):
+        if ammount > self.__balance:
+            print("Insufficient funds!")
+        else:
+            self.__balance -= ammount
+          
+    @property
+    def balance(self):
+        return self.__balance
+    
+bank = BankAccount(4000)
+bank.deposit(1000)
+bank.withdraw(2000)
+print(bank.balance)
+
+    
