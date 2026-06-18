@@ -84,6 +84,49 @@
 # print(emp.ann_property)
 
 
-
+# P4 — Hard
+# Student class — __marks private (list of 3 subjects). Methods:
+# add_marks(subject, mark) → 0-100 ke beech hi accept karo
+# @property average → average calculate karo
+# @property grade → A(90+), B(75+), C(60+), F(below 60)
+# __str__ → sab info print karo
         
-    
+class Student:
+    def __init__(self):
+        self.subject = []
+        self.__marks = []
+
+    def add_marks(self, subject, mark):
+        if 0 <= mark <= 100:
+            self.subject.append(subject)
+            self.__marks.append(mark)
+        else:
+            print("Invalid marks!")
+
+    @property
+    def average(self):
+        return sum(self.__marks) / len(self.__marks)
+
+    @property
+    def grade(self):
+        avg = self.average
+        if avg >= 90:
+            return "A"
+        elif avg >= 75:
+            return "B"
+        elif avg >= 60:
+            return "C"
+        else:
+            return "F"
+
+    def __str__(self):
+        return f'Subjects: {self.subject}\nMarks: {self.__marks}\nAverage: {self.average}\nGrade: {self.grade}'
+
+
+s1 = Student()
+s1.add_marks("Maths", 85)
+s1.add_marks("Science", 92)
+s1.add_marks("English", 78)
+print(s1)
+        
+        
