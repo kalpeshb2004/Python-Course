@@ -91,11 +91,41 @@
 
 
 # P3 — Medium
-# Employee abstract class — @abstractmethod: calculate_salary(). 3 types:
+# Employee abstract class — @abstractmethod: calculate_salary(). 3 child class:
 # FullTime(base_salary) → base salary
 # PartTime(hours, rate) → hours × rate
 # Freelancer(projects, rate_per_project) → projects × rate
 
+from abc import ABC , abstractmethod
+class employee(ABC):
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+class fulltime(employee):
+    def calculate_salary(self,base_salary):
+        return base_salary
+
+class parttime(employee):
+    def calculate_salary(self,hour,rate):
+        print(f'hours per rate: {hour * rate}$')
+
+class freelancer(employee):
+    def calculate_salary(self,projects,rate_per_project):
+        print(f'rates per project: {projects * rate_per_project}$')
+
+f1 = fulltime()
+print(f1.calculate_salary(100000))
+
+p1 = parttime()
+p1.calculate_salary(1,35)
+
+fr1 = freelancer()
+fr1.calculate_salary(2,500)
+
+        
+       
+        
 
 
 
