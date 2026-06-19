@@ -73,18 +73,6 @@
 #     payment.pay(amount)
 #     payment.validate()
 
-# C1 = creditcard()
-# C1.pay(1000)
-# C1.validate()
-
-# u1 = upi()
-# u1.pay(2000)
-# u1.validate()
-
-# c1 = cash()
-# c1.pay(3000)
-# c1.validate()
-
 # process_payment(creditcard(), 5000)
 # process_payment(upi(), 1000)
 # process_payment(cash(), 3000)
@@ -96,32 +84,80 @@
 # PartTime(hours, rate) → hours × rate
 # Freelancer(projects, rate_per_project) → projects × rate
 
-from abc import ABC , abstractmethod
-class employee(ABC):
-    @abstractmethod
-    def calculate_salary(self):
-        pass
+# from abc import ABC , abstractmethod
+# class employee(ABC):
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
 
-class fulltime(employee):
-    def calculate_salary(self,base_salary):
-        return base_salary
+# class fulltime(employee):
+#     def calculate_salary(self,base_salary):
+#         return base_salary
 
-class parttime(employee):
-    def calculate_salary(self,hour,rate):
-        print(f'hours per rate: {hour * rate}$')
+# class parttime(employee):
+#     def calculate_salary(self,hour,rate):
+#         print(f'hours per rate: {hour * rate}$')
 
-class freelancer(employee):
-    def calculate_salary(self,projects,rate_per_project):
-        print(f'rates per project: {projects * rate_per_project}$')
+# class freelancer(employee):
+#     def calculate_salary(self,projects,rate_per_project):
+#         print(f'rates per project: {projects * rate_per_project}$')
 
-f1 = fulltime()
-print(f1.calculate_salary(100000))
+# f1 = fulltime()
+# print(f1.calculate_salary(100000))
 
-p1 = parttime()
-p1.calculate_salary(1,35)
+# p1 = parttime()
+# p1.calculate_salary(1,35)
 
-fr1 = freelancer()
-fr1.calculate_salary(2,500)
+# fr1 = freelancer()
+# fr1.calculate_salary(2,500)
+
+
+#  P4 — Hard
+# DatabaseConnection abstract class — @abstractmethod: connect(), disconnect(), execute(query). 2 child: MySQLConnection, MongoDBConnection. Har ek apna message print kare. run_query(db, query) function banao jo connect → execute → disconnect kare.
+
+# from abc import ABC ,abstractmethod
+# class DatabaseConnection(ABC):
+#     @abstractmethod
+#     def connect(self):
+#         pass
+
+#     @abstractmethod
+#     def execute(self,query):
+#         pass
+
+#     @abstractmethod
+#     def disconnected(self):
+#         pass
+
+# class MySQLConnection(DatabaseConnection):
+#     def connect(self):
+#         print("MySQLConnection connected")
+
+#     def execute(self, query):
+#         print(f'MySQL query executed: {query}')
+    
+#     def disconnected(self):
+#         print("MySQL disconnected")
+
+# class MongoDBConnection(DatabaseConnection):
+#     def connect(self):
+#         print("MongoDBConnection connected")
+
+#     def execute(self, query):
+#         print(f'MongoDB query executed: {query}')
+    
+#     def disconnected(self):
+#         print("MongoDB disconnected")
+    
+
+# def run_query(db, query):
+#     db.connect()
+#     db.execute(query)
+#     db.disconnected()
+
+# run_query(MySQLConnection(),"SELECT * FROM")
+# run_query(MongoDBConnection(), "db.users.find()")
+
 
         
        
