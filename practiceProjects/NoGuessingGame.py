@@ -16,6 +16,7 @@
 # attempt khatam then 
 
 # msg aayega you loose
+
 import random
 
 def get_range():
