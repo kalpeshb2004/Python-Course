@@ -34,31 +34,34 @@ import json
 # Name se search karo
 # Contact delete karo → file update
 
+# import json
+
 # data = [
 #     {"name": "Kalpesh", "phone": "9876543210"},
 #     {"name": "Jayesh",  "phone": "8888888888"},
 #     {"name": "Ram",     "phone": "9999999999"}
 # ]
 
-# #save
-# with open("student1.json" ,"w") as f:
-#     json.dump(data,f,indent=4)
+# with open("student1.json", "w") as f:
+#     json.dump(data, f, indent=4)
 
-# #load
-# with open("student1.json" , "r") as f:
+# with open("student1.json", "r") as f:
 #     data = json.load(f)
 
-# #append
 # data.append({"name": "kaya", "phone": "6777767777"})
 
-# with open("student1.json" ,"w") as f:
-#     json.dump(data,f,indent=4)
+# with open("student1.json", "w") as f:
+#     json.dump(data, f, indent=4)
+
+# # Search ✓
+# for item in data:
+#     if item["name"] == "kaya":
+#         print(item["phone"], item["name"])
+
+# # Delete ✓
+# for contact in data:
+#     if contact["name"] == "Kalpesh":
+#         data.remove(contact)
+#         break
 
 # print(data)
-
-# # searching name 
-# for data in data:
-#     if data["name"] == "kaya":
-#         print(data["phone"] , data["name"])
-
-
