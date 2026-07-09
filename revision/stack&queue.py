@@ -4,21 +4,31 @@
 
 from collections import deque
 
-stack = deque("kalpesh")
-# word = "kalpesh"
+# stack = deque("kalpesh")
+# # word = "kalpesh"
 
-# for char in word:
-#     stack.append(char)
+# # for char in word:
+# #     stack.append(char)
 
-result = ""
-while stack:
-    result = result + stack.pop()
+# result = ""
+# while stack:
+#     result = result + stack.pop()
 
-print(result)
+# print(result)
 
 
 # Q2 — Medium (Queue)
 # Queue use karo — 5 customers add karo. Ek ek karke serve karo aur print karo "Serving: name".
+
+# queue = deque()
+
+# queue.append("kalpesh")
+# queue.append("jayesh")
+
+# while queue:
+#     served = queue.pop()
+#     print("served :" , served)
+
 
 
 
