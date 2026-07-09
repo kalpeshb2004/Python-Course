@@ -1,0 +1,17 @@
+5 PRACTICE Q:
+Q1
+List of names lo — sabse lamba naam nikalo.
+["Raj", "Kalpesh", "Jay"] → "Kalpesh"
+
+Q2
+List of tuples (name, age) — sabse chota age wala nikalo.
+[("Raj",25),("Jay",19)] → ("Jay",19)
+
+Q3
+List of dicts [{name, salary}] — salary ke basis pe sort karo.
+
+Q4
+List of words — length ke basis pe sort karo, same length wale alphabetically.
+
+Q5
+List of tuples (item, price, qty) — total value (price×qty) ke basis pe sort karo.
