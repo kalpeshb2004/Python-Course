@@ -60,32 +60,58 @@ print(lst)
 # Numbers list — har number aur uska cube dict me.
 # [1,2,3,4] → {1:1, 2:8, 3:27, 4:64}
 
-
+dct = {x:x**3 for x in range(1,5)}
+print(dct)
 
 # Q2
 # 2 lists lo names aur marks — zip karke dict banao.
 # ["Raj","Jay"] + [95,88] → {"Raj":95, "Jay":88}
 
+key = ["Raj","Jay"]
+value = [95,88]
+dct = {k:v for k,v in zip(key,value)}
+print(dct)
+
 # Q3
 # Dict lo — values double karo comprehension se.
 # {"a":1, "b":2, "c":3} → {"a":2, "b":4, "c":6}
+
+dct = {"a":1, "b":2, "c":3}
+dct1 = {k:v*2 for k,v in dct.items()}
+print(dct1)
 
 # Q4
 # Words list — sirf odd length wale words aur unki length dict me.
 # ["hi","ram","kalpesh","jay"] → {"ram":3, "kalpesh":7}
 
+word = ["hi","ram","kalpesh","jay"]
+dct = {k:len(k) for k in word if len(k) % 2 != 0}
+print(dct)
+
 # Q5
 # List of students (name, marks) — sirf passing (>=40) ka dict banao.
 # [("Raj",95),("Jay",35)] → {"Raj":95}
+
+lst = [("Raj",95),("Jay",35)]
+dct = {name:marks for name,marks in lst if marks >=40}
+print(dct)
+
 
 # DICT — 2 CONDITIONS
 # Q6
 # Numbers 1-20 — sirf even numbers aur jo 3 se bhi divide ho — key:value = number:square.
 # → {6:36, 12:144, 18:324}
 
+dct = {num:num*num for num in range(1,20) if num%2==0 and num%3==0}
+print(dct)
+
 # Q7
 # Words list — sirf wo words jo 4 se zyada letters wale ho aur 'a' contain karo — word:length dict.
 # ["mango","kiwi","banana","apple"] → {"mango":5, "banana":6, "apple":5}
+
+words = ["mango","kiwi","banana","apple"]
+dct = {w:len(w) for w in words if len(w) >4 and "a" in w}
+print(dct)
 
 # TOTAL: 14 Q 💪
 # Shuru kar! 🪨
