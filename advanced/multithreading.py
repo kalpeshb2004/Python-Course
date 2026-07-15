@@ -52,6 +52,33 @@
 
 # print("he he")
 
+# Medium:
+# Ek shared variable counter = 0 hai. 2 threads ise 100000 baar increment karte hain bina Lock use kiye — output kya galat aayega? Fir Lock use karke fix karo.
+
+import threading
+
+counter = 0
+lock = threading.Lock() # lock object banaya
+
+def task():
+    global counter
+    for i in range(100000):
+        lock.acquire()
+        #with lock: ye automatically acquire and release karega 
+        counter+=1
+        lock.release()
+        
+t1 = threading.Thread(target=task)
+t2 = threading.Thread(target=task)
+
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print(counter)
+
+
 
 
 
