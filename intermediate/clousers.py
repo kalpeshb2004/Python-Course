@@ -7,7 +7,7 @@
 
 def counter(count):
     def inner():
-        nonlocal count
+        nonlocal count #nonlocal variable ko modify karne ke liye use kiya jata , access deta he modify karne ka 
         count += 1
         print(count)
     return inner

@@ -3,28 +3,28 @@
 
 import json
 
-# student = {
-#     "name" : "kalpesh",
-#     "age" : "21",
-#     "marks" : [87,67,72]
-# }
+student = {
+    "name" : "kalpesh",
+    "age" : "21",
+    "marks" : [87,67,72]
+}
 
-# #save
-# with open("student.csv","w") as f:
-#     json.dump(student,f,indent=4)
+#save
+with open("student.csv","w") as f:
+    json.dump(student,f,indent=4)
 
-# #laod
-# with open("student.csv","r") as f:
-#     data = json.load(f)
+#laod
+with open("student.csv","r") as f:
+    data = json.load(f)
 
-# #print
-# print(data["name"])
-# print(data["age"])
-# print(data["marks"])
+#print
+print(data["name"])
+print(data["age"])
+print(data["marks"])
 
-# #average
-# average = sum(data["marks"]) / len(data["marks"])
-# print(f"{average:.2f}")
+#average
+average = sum(data["marks"]) / len(data["marks"])
+print(f"{average:.2f}")
 
 2
 # P2 — Medium

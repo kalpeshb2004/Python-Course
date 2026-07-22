@@ -1,27 +1,27 @@
-# def work_checker():
-#     with open("practice.txt" ,"r") as f:
-#      data = f.read()
-#     if("learning" in  data):
-#         print("found")
-#     else:
-#         print("not found")
+def work_checker():
+    with open("practice.txt" ,"r") as f:
+     data = f.read()
+    if("learning" in  data):
+        print("found")
+    else:
+        print("not found")
 
-# work_checker()
+work_checker()
 
-# def line_count():
-#     data = True
-#     count = 1
-#     word = "larning"
-#     with open("practice.txt","r") as f:
-#         while data:
-#             data = f.readline()
-#             if(word in data):
-#                 print(count)
-#                 return
-#             count += 1
-#     return -1
+def line_count():
+    data = True
+    count = 1
+    word = "larning"
+    with open("practice.txt","r") as f:
+        while data:
+            data = f.readline()
+            if(word in data):
+                print(count)
+                return
+            count += 1
+    return -1
 
-# print(line_count())
+print(line_count())
 
 
 data = True

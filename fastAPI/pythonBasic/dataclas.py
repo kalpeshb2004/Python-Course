@@ -1,4 +1,4 @@
-# Class banate waqt normal tarike se __init__, __repr__ sab manually likhna padta. Dataclass ye sab auto-generate kar deta.
+# Class banate waqt normal tarike se __init__, __repr__ sab manually likhna padta he. Dataclass ye sab auto-generate kar deta.
 
 # normal data class 
 class student:
@@ -12,8 +12,7 @@ class student:
 s1 = student("kalpesh" , 21)
 # print(s1)
 
-# from dataclasses import dataclass
-
+from dataclasses import dataclass
 @dataclass
 class student:
     name: str

@@ -19,7 +19,7 @@ print(is_adult(12))
 
 def calculate_gpa(marks: list[float]) -> float:
     gpa = sum(marks) / len(marks)
-    return f""
+    return gpa
 
 print(calculate_gpa([10,20,30.21,40]))
 
