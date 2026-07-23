@@ -1,8 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI # module 
 
-app = FastAPI()
+app = FastAPI() #app : variable that gives root & fastapi: object
 
-@app.get("/")
+@app.get("/") #@app.get:gives coordinates and "/"will print whats we coded
 def home():
     return {"message" : "hello dalle"}
 
