@@ -21,7 +21,7 @@ def route(item_id : int):
 def create_items(item:dict):
     return item
 
-3. response_model
+# 3. response_model
 
 # Kabhi input model alag hota, output alag chahiye hota (jaise password hide karna). response_model control karta output shape:
 
