@@ -11,3 +11,5 @@ def route():
 @router.get("/{product_id}")
 def route1(product_id: int):
     return products.get(product_id, "Not found")
+
+
