@@ -1,3 +1,6 @@
-print(calculate_add(a,b))
-# print(calculate_sub(a,b))
-# print(calculate_mul(a,b))
+x = 10 
+if x>5:
+    print("a")
+
+if x>0:
+    print("b")
