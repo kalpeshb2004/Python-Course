@@ -1,10 +1,16 @@
 contact = {}
 
 def add_contact():
-    name = input("enter a name: ")
+    name = input("enter a name: ").lower()
+    if name in contact:
+        print("already exist")
+    else:    
+        number = input("enter a number")
+        contact[name] = number
+        print("added!")
+        
     number = input("enter a number: ")
-    contact[name] = number
-    print("added!")
+    
 
 
 def search_contact():
@@ -33,7 +39,12 @@ while True:
     elif command == "delete":
         delete_contact()
     elif command == "show":
-        print(contact)
+        if len(contact) == 0:
+            print("no contacts!")
+        else:
+            for name, number in contact.items():
+                print(f"{name} : {number}")
+
     elif command == "exit":
         print("bye")
         break
