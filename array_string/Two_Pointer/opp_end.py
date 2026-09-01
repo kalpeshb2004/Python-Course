@@ -1,0 +1,173 @@
+# Two pointer
+1
+# Reverse a string
+# Input: "hello"
+# Expected Output: "olleh"
+
+# def reverse(s):
+#     s = list(s)
+#     left = 0
+#     right = len(s) - 1
+
+#     while left < right:
+#         s[left] , s[right] = s[right] , s[left]
+#         left += 1
+#         right -= 1
+
+#     return "".join(s)
+
+# print(reverse("hello"))
+
+2
+# 2. Reverse an array
+# Input: [1, 2, 3, 4, 5]
+# Expected Output: [5, 4, 3, 2, 1]
+
+def array(arr):
+    left = 0
+    right = len(arr) - 1
+
+    while left < right:
+        arr[left] , arr[right] = arr[right] , arr[left]
+        left += 1
+        right -= 1
+
+    return arr
+
+print(array([1,2,3,4,5]))
+
+# 3. Check palindrome (string)
+# Input: "madam"
+# Expected Output: True
+# Input 2: "hello"
+# Expected Output: False
+
+def  palindrome(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+print(palindrome("madam"))
+
+# 4. Valid palindrome (ignore spaces/punctuation, case)
+# Input: "A man, a plan, a canal: Panama"
+# Expected Output: True
+# Input 2: "race a car"
+# Expected Output: False
+
+# def valid_palindrome(s):
+#     left = 0
+#     right = len(s) - 1
+
+#     while left < right:
+#         while left < right and not s[left].isalnum():
+#             left += 1
+#         while left < right and not s[right].isalnum():
+#             right -= 1
+
+#         if s[left].lower() != s[right].lower():
+#             return False
+
+#         left += 1
+#         right -= 1
+
+#     return True
+
+# print(valid_palindrome("A man, a plan, a canal: Panama"))
+
+# 5. Pair with given sum (sorted array)
+# Input: arr = [1, 2, 3, 4, 6], target = 6
+# Expected Output: (1, 3) (index) ya (2, 4) (values) — pair jinka sum 6 ho     
+
+# arr = [1,2,3,4,6]
+# target = 6
+
+# left = 0
+# right = len(arr) - 1
+
+# while left < right:
+#     total = arr[left] + arr[right]
+
+#     if total == target:
+#         print(arr[left] , arr[right])
+#         break
+#     elif total < target:
+#         left += 1
+#     elif total > target:
+#         right -= 1
+    
+# 6. Reverse vowels of a string
+# Input: "hello"
+# Expected Output: "holle"
+# Input 2: "leetcode"
+# Expected Output: "leotcede" 
+
+def vowels_swpping(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        while left < right and s[left] not in "aeiou":
+            left += 1
+        while left < right and s[right] not in "aeiou":
+            right -= 1
+
+        s[left] , s[right] = s[right] , s[left]
+
+        left += 1
+        right -= 1
+
+    return "".join(s)
+
+print(vowels_swpping("hello"))
+print(vowels_swpping("leetcode"))
+
+# 7. Check if string is palindrome after removing at most 1 character
+# Input: "abca"
+# Expected Output: True (b ya c hatao to "aca" ya "aba" palindrome ban jaata)
+# Input 2: "abc"
+# Expected Output: False
+
+def palindrome(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+       if s[left] != s[right]:
+           temp = s.copy()
+           temp.pop(left)
+
+           if temp == temp[::-1]:
+              return True
+
+           temp = s.copy()
+           temp.pop(right)
+
+           if temp == temp[::-1]:
+               return True
+
+           return False
+       left += 1
+       right -= 1
+
+    return True
+
+print(palindrome("abca"))
+
+        
+
+
+
+
+
+
+
