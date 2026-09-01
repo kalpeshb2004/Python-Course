@@ -30,7 +30,7 @@ def delete_contact():
         print("contact not found")
 
 while True:
-    command = input("enter add/serach/delete/show: ").lower()
+    command = input("enter add/serach/delete/show/exit: ").lower()
 
     if command == "add":
         add_contact()
