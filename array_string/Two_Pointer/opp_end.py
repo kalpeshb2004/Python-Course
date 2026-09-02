@@ -4,19 +4,19 @@
 # Input: "hello"
 # Expected Output: "olleh"
 
-# def reverse(s):
-#     s = list(s)
-#     left = 0
-#     right = len(s) - 1
+def reverse(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
 
-#     while left < right:
-#         s[left] , s[right] = s[right] , s[left]
-#         left += 1
-#         right -= 1
+    while left < right:
+        s[left] , s[right] = s[right] , s[left]
+        left += 1
+        right -= 1
 
-#     return "".join(s)
+    return "".join(s)
 
-# print(reverse("hello"))
+print(reverse("hello"))
 
 2
 # 2. Reverse an array
@@ -62,46 +62,46 @@ print(palindrome("madam"))
 # Input 2: "race a car"
 # Expected Output: False
 
-# def valid_palindrome(s):
-#     left = 0
-#     right = len(s) - 1
+def valid_palindrome(s):
+    left = 0
+    right = len(s) - 1
 
-#     while left < right:
-#         while left < right and not s[left].isalnum():
-#             left += 1
-#         while left < right and not s[right].isalnum():
-#             right -= 1
+    while left < right:
+        while left < right and not s[left].isalnum():
+            left += 1
+        while left < right and not s[right].isalnum():
+            right -= 1
 
-#         if s[left].lower() != s[right].lower():
-#             return False
+        if s[left].lower() != s[right].lower():
+            return False
 
-#         left += 1
-#         right -= 1
+        left += 1
+        right -= 1
 
-#     return True
+    return True
 
-# print(valid_palindrome("A man, a plan, a canal: Panama"))
+print(valid_palindrome("A man, a plan, a canal: Panama"))
 
 # 5. Pair with given sum (sorted array)
 # Input: arr = [1, 2, 3, 4, 6], target = 6
 # Expected Output: (1, 3) (index) ya (2, 4) (values) — pair jinka sum 6 ho     
 
-# arr = [1,2,3,4,6]
-# target = 6
+arr = [1,2,3,4,6]
+target = 6
 
-# left = 0
-# right = len(arr) - 1
+left = 0
+right = len(arr) - 1
 
-# while left < right:
-#     total = arr[left] + arr[right]
+while left < right:
+    total = arr[left] + arr[right]
 
-#     if total == target:
-#         print(arr[left] , arr[right])
-#         break
-#     elif total < target:
-#         left += 1
-#     elif total > target:
-#         right -= 1
+    if total == target:
+        print(arr[left] , arr[right])
+        break
+    elif total < target:
+        left += 1
+    elif total > target:
+        right -= 1
     
 # 6. Reverse vowels of a string
 # Input: "hello"
