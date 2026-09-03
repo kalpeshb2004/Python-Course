@@ -188,8 +188,38 @@ def reverse_maintain_order(s):
 
 print(reverse_maintain_order("I Love Java"))
 
+# 9. Compare Version Numbers
+# Input: version1 = "1.2", version2 = "1.10"
+# Output: -1
+# Input 2: version1 = "1.01", version2 = "1.001"
+# Output: 0
 
-        
+def compare_version(version1,version2):
+    parts1 = version1.split(".")
+    parts2 = version2.split(".")
+
+    max_len = max(len(parts1), len(parts2))
+
+    i = 0
+
+    while i < max_len:
+        num1 = int(parts1[i]) if i < len(parts1) else 0
+        num2 = int(parts2[i]) if i < len(parts2) else 0
+
+        if num1 < num2:
+            return -1
+        if num1 > num2:
+            return 1
+
+        i += 1
+
+    return 0
+
+print(compare_version("1.2", "1.10"))     # -1
+print(compare_version("1.01", "1.001"))
+
+
+   
 
 
 
