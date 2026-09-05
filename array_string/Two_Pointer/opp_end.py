@@ -268,6 +268,24 @@ print(two_sum_index([2, 7, 11, 15]))
 # Input: "a-bC-dEf-ghIj"
 # Output: "j-Ih-gfE-dCba"
 
+def rev_only_ltter(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        while left < right and not s[left].isalnum():
+            left += 1
+        while left < right and not s[right].isalnum():
+            right -= 1
+
+        s[left] , s[right] = s[right] , s[left]
+        left += 1
+        right -= 1
+
+    return "".join(s)
+
+print(rev_only_ltter("a-bC-dEf-ghIj"))
 
 
 
