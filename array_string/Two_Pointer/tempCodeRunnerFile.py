@@ -1,3 +1,1 @@
-       result.append("".join(word))
-
-    return " ".join(result)
+def reverse_maintain_order(s):

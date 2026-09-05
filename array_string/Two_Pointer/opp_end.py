@@ -163,30 +163,30 @@
 
 # print(palindrome("abca"))
 
-# 8. Reverse a string maintaining word order
+# 8. Reverse a string maintaining word order *******
 # Input: "I love Java"
 # Output: "I evol avaJ"
 # (Har word ke letters reverse, but word order same)
 
-def reverse_maintain_order(s):
-    words = s.split(" ")
-    result = []
+# def reverse_maintain_order(s):
+#     words = s.split(" ")
+#     result = []
 
-    for word in words:
-        word = list(word)
-        left = 0
-        right = len(word) - 1
+#     for word in words:
+#         word = list(word)
+#         left = 0
+#         right = len(word) - 1
 
-        while left < right:
-            word[left] , word[right] = word[right] , word[left]
-            left += 1
-            right -= 1
+#         while left < right:
+#             word[left] , word[right] = word[right] , word[left]
+#             left += 1
+#             right -= 1
 
-        result.append("".join(word))
+#         result.append("".join(word))
 
-    return " ".join(result)
+#     return " ".join(result)
 
-print(reverse_maintain_order("I Love Java"))
+# print(reverse_maintain_order("I Love Java"))
 
 # 9. Compare Version Numbers
 # Input: version1 = "1.2", version2 = "1.10"
@@ -194,32 +194,79 @@ print(reverse_maintain_order("I Love Java"))
 # Input 2: version1 = "1.01", version2 = "1.001"
 # Output: 0
 
-def compare_version(version1,version2):
-    parts1 = version1.split(".")
-    parts2 = version2.split(".")
+# def compare_version(version1,version2):
+#     parts1 = version1.split(".")
+#     parts2 = version2.split(".")
 
-    max_len = max(len(parts1), len(parts2))
+#     max_len = max(len(parts1), len(parts2))
 
-    i = 0
+#     i = 0
 
-    while i < max_len:
-        num1 = int(parts1[i]) if i < len(parts1) else 0
-        num2 = int(parts2[i]) if i < len(parts2) else 0
+#     while i < max_len:
+#         num1 = int(parts1[i]) if i < len(parts1) else 0
+#         num2 = int(parts2[i]) if i < len(parts2) else 0
 
-        if num1 < num2:
-            return -1
-        if num1 > num2:
-            return 1
+#         if num1 < num2:
+#             return -1
+#         if num1 > num2:
+#             return 1
 
-        i += 1
+#         i += 1
 
-    return 0
+#     return 0
 
-print(compare_version("1.2", "1.10"))     # -1
-print(compare_version("1.01", "1.001"))
+# print(compare_version("1.2", "1.10"))     # -1
+# print(compare_version("1.01", "1.001"))
+
+# 10
+# left side even and right side all odd (no need to maintain order)
+# sort array by parrity
+
+def parity(arr):
+    left = 0
+    right = len(arr) - 1
+
+    while left < right:
+        while left < right and arr[left] % 2 == 0:
+            left += 1
+
+        while left < right and arr[right] % 2 != 0:
+            right -= 1
+
+        arr[left] , arr[right] = arr[right] , arr[left]
+        left += 1
+        right -= 1
+
+    return arr
+
+print(parity([3,1,2,4]))
 
 
-   
+# 11. Two Sum II (sorted array, indices)
+# Input: numbers = [2, 7, 11, 15], target = 9
+# Output: [1, 2]
+
+def two_sum_index(arr):
+    left = 0
+    right = len(arr) - 1
+    target = 9
+
+    while left < right :
+        total = arr[left] + arr[right]
+        if total == target:
+            return [left+1 , right+1]
+        elif total < target:
+            left += 1
+        elif total > target:
+            right -= 1      
+    return -1
+
+print(two_sum_index([2, 7, 11, 15]))
+
+# Q12
+# Reverse Only Letters
+# Input: "a-bC-dEf-ghIj"
+# Output: "j-Ih-gfE-dCba"
 
 
 
