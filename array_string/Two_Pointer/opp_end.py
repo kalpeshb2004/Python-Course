@@ -288,7 +288,68 @@ def rev_only_ltter(s):
 print(rev_only_ltter("a-bC-dEf-ghIj"))
 
 
+# 13. Palindrome After One Swap
+# Input: [1, 2, 4, 2, 1]
+# Output: True
 
+def palindrome_one_after_swap(arr):
+    left, right = 0, len(arr) - 1
+
+    # jab tak match ho, dono pointer andar aao
+    while left < right and arr[left] == arr[right]:
+        left += 1
+        right -= 1
+
+    if left >= right:
+        return True   # already palindrome, swap ki zarurat nahi
+
+    # ek hi mismatch pair par swap try karo
+    arr[left], arr[right] = arr[right], arr[left]
+    return arr == arr[::-1]
+
+print(palindrome_one_after_swap([1, 2, 4, 2, 1]))  # True
+
+# Q 14. Minimum Length After Removing Similar Ends
+# Input: "cabaabac"
+# Output: 0
+# explain : opp/end same he to  remove karo 0 hone tak / jaha same na mile loop break karo aur utana len retuen karo 
+
+def remove_same_letter(s):
+    s = list(s)
+    left = 0
+    right = len(s) - 1
+
+    while left < right and s[left] == s[right]:
+            left += 1
+            right -= 1
+    return right - left + 1
+
+print(remove_same_letter("cacaabac"))
+
+# 15. DI String Match
+# Input: "IDID"
+# Output: [0, 4, 1, 3, 2]
+
+def DI_string(s):
+    s = list(s)
+    left = 0
+    right = len(s)
+    result = []
+
+    for char in s:
+        if char == "I":
+            result.append(left)
+            left += 1
+        else:
+            result.append(right)
+            right -= 1
+
+    result.append(left)
+    return result
+
+print(DI_string("IDID"))
+
+         
 
 
 
