@@ -349,6 +349,30 @@ def DI_string(s):
 
 print(DI_string("IDID"))
 
+# **16. Squares of a Sorted Array**
+# Input: `[-4, -1, 0, 3, 10]`
+# Output: `[0, 1, 9, 16, 100]`
+
+def square_array(arr):
+    left = 0
+    right = len(arr) - 1
+    result = []
+    pos = 0
+
+    while left <= right:
+        left_sq = arr[left] ** 2
+        right_sq = arr[right] ** 2
+
+        if left_sq > right_sq:
+            result.append(left_sq)
+            left += 1
+        else:
+            result.append(right_sq)
+            right -= 1
+
+    return result[::-1]
+
+print(square_array([-4, -1, 0, 3, 10]))
          
 
 
