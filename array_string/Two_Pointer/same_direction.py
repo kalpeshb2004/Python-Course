@@ -71,3 +71,71 @@ def remove_duplicates2(arr):
 
 print(remove_duplicates2([1, 1, 1, 2, 2, 3]))
 
+
+# **5. Merge Two Sorted Arrays**
+
+# Input: `arr1 = [1, 3, 5, 7]`, `arr2 = [2, 4, 6, 8]`
+
+# Output: `[1, 2, 3, 4, 5, 6, 7, 8]`
+
+# NORMAL CASE
+
+def Merge_2_sortedArr(arr1,arr2):
+     result = []
+     i = 0
+     j = 0
+
+     while i < len(arr1) and j < len(arr2):
+         if arr1[i] <= arr2[j]:
+            result.append(arr1[i])
+            i += 1
+         else:
+             result.append(arr2[j])
+             j += 1
+
+     result.extend(arr1[i:])  #bache hue element add kar raha he hamesha extend use karana 
+     result.extend(arr2[j:])
+
+     return result
+
+print(Merge_2_sortedArr([1, 3, 5, 7],[2, 4, 6, 8]))
+# ab yaha direct element big or small dekh ke insert ho rahe he duplicate allowed he koi restriction nahi he 
+
+
+# **5. Merge Two Sorted Arrays**
+# Input: `arr1 = [1,1,1,2,4,6,7]`, `arr2 = [1,2,3,6,7,8,9,10]`
+# Output: `[1, 2, 3, 4, 5, 6, 7, 8,9,10]`
+#advanced case (LeetCode problem)
+#duplicate values allowed nahi he 
+
+def merge_two_sorted_array(arr1,arr2):
+    i = 0
+    j = 0
+    result = []
+
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] <= arr2[j]:
+            if len(result) == 0 or arr1[i] != result[-1]:
+                result.append(arr1[i])
+            i += 1
+        else:
+            if len(result) == 0 or arr2[j] != result[-1]:
+                result.append(arr2[j])
+            j += 1
+
+    while i < len(arr1):
+            if len(result) == 0 or arr1[i] != result[-1]:
+                result.append(arr1[i])
+            i += 1
+
+    while j < len(arr2):
+            if len(result) == 0 or arr2[j] != result[-1]:
+                result.append(arr2[j])
+            j += 1
+
+    return result
+
+print(merge_two_sorted_array([1,1,1,2,4,6,7],[1,2,3,6,7,8,9,10]))
+
+
+
