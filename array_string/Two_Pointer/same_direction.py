@@ -103,7 +103,8 @@ print(Merge_2_sortedArr([1, 3, 5, 7],[2, 4, 6, 8]))
 
 
 # **5. Merge Two Sorted Arrays**
-# Input: `arr1 = [1,1,1,2,4,6,7]`, `arr2 = [1,2,3,6,7,8,9,10]`
+# Input: `arr1 = [1,1,1,2,4,6,7]`, 
+#        `arr2 = [1,2,3,6,7,8,9,10]`
 # Output: `[1, 2, 3, 4, 5, 6, 7, 8,9,10]`
 #advanced case (LeetCode problem)
 #duplicate values allowed nahi he 
@@ -175,7 +176,7 @@ print(union_array([1, 3, 4, 5],[2, 3, 5, 6]))
 # **7. Intersection of Two Sorted Arrays**
 
 # Input: `arr1 = [1, 2, 4, 5, 6]`, 
-#         `arr2 = [2, 3, 5, 7]`
+#         `arr2 =[2, 3, 5, 7]`
 
 # Output: `[2, 5]`
 
