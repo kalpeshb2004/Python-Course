@@ -221,6 +221,20 @@ def common_elements(arr1,arr2):
     return result
 
 print(common_elements([1, 2, 2, 3],[2, 2, 4]))
+
+# **9. Is Subsequence (string check)**
+# Input: `s = "abc"`, `t = "ahbgdc"`
+# Output: `True`
     
+def is_subsequence(s,t):
+    i = 0
+    j = 0
 
+    while i < len(s) and j < len(t):
+        if s[i] == t[j]:
+            i += 1
+        j += 1
+    return i == len(s)
 
+print(is_subsequence("abc","ahbgdc"))
+            
