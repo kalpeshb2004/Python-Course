@@ -273,5 +273,22 @@ def merge_sort(arr1,arr2):
 
 print(merge_sort([1, 4, 7],[2, 3, 8]))
 
+# **12. Move All Negative Numbers to One Side (order not preserved)**
+# Input: `[-1, 2, -3, 4, -5, 6]`
+# Output: `[-1, -3, -5, 4, 2, 6]` (koi bhi valid arrangement)
 
-            
+def negative(arr):
+    slow = 0
+    for fast in range(len(arr)):
+        if arr[fast] < 0:
+            arr[slow] , arr[fast] = arr[fast] , arr[slow]
+            slow += 1
+    return arr
+
+print(negative([-1, 2, -3, 4, -5, 6]))
+        
+
+    
+
+
+    
