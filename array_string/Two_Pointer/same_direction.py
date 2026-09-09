@@ -238,5 +238,40 @@ def is_subsequence(s,t):
 
 print(is_subsequence("abc","ahbgdc"))
 
+# **10. Merge Sort Style Merge Step**
+# Input: `left = [1, 4, 7]`, 
+#       `right = [2, 3, 8]`
+# Output: `[1, 2, 3, 4, 7, 8]`
+
+def merge_sort(arr1,arr2):
+    i = 0
+    j = 0
+    result = []
+
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] <= arr2[j]:
+            if len(result) == 0 or result[-1] != arr1[i]:
+                result.append(arr1[i])
+            i += 1
+        else:
+            if len(result) == 0 or result[-1] != arr2[j]:
+                result.append(arr2[j])
+            j += 1
+
+    while i < len(arr1):
+        if len(result) == 0 or result[-1] != arr1[i]:
+            result.append(arr1[i])
+        i += 1
+
+    while j < len(arr2):
+        if len(result) == 0 or result[-1] != arr2[j]:
+            result.append(arr2[j])
+        j += 1
+        
+    return result
+    
+
+print(merge_sort([1, 4, 7],[2, 3, 8]))
+
 
             
