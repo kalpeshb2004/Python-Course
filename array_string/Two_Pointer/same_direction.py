@@ -198,6 +198,29 @@ def intersection_array(arr1,arr2):
     return result
 
 print(intersection_array([1, 2, 4, 5, 6],[2, 3, 5, 7]))
+
+# **8. Find Common Elements With Duplicates (two sorted arrays)
+# Input: `arr1 = [1, 2, 2, 3]`, `arr2 = [2, 2, 4]`
+# Output: `[2, 2]`
+
+def common_elements(arr1,arr2):
+    i = 0
+    j = 0
+    result = []
+
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] == arr2[j]:
+            if len(result) == 0 or result[-1] == arr1[i]:
+                result.append(arr1[i])
+            i += 1
+            j += 1
+        elif arr1[i] < arr2[j]:
+            i += 1
+        else:
+            j += 1
+    return result
+
+print(common_elements([1, 2, 2, 3],[2, 2, 4]))
     
 
 
