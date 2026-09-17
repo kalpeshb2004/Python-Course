@@ -287,9 +287,23 @@ def negative(arr):
     return arr
 
 print(negative([-1, 2, -3, 4, -5, 6]))
-        
-
     
+# **4. Segregate Even and Odd Numbers**
+
+# Input: `[1, 2, 3, 4, 5, 6]`
+
+# Output: `[6, 2, 4, 3, 5, 1]` (koi bhi valid arrangement, even pehle)
+
+def segragate(arr):
+    slow = 0
+
+    for fast in range(len(arr)):
+        if arr[fast] % 2 == 0:
+            arr[slow] , arr[fast] = arr[fast] , arr[slow]
+            slow += 1
+    return arr
+print(segragate([1, 2, 3, 4, 5, 6]))
+
 
 
     

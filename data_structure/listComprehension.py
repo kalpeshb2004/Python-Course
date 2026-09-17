@@ -1,6 +1,6 @@
 #sqaure if no is even and cube if the no is odd
-# lst = [n**2 if n%2==0 else n**3 for n in range(1,10)]
-# print(lst)
+lst = [n**2 if n%2==0 else n**3 for n in range(1,10)]
+print(lst)
 
 # P1 — filter + transform
 # list lo [1,2,3,4,5,6,7,8,9,10]
