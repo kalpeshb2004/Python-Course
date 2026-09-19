@@ -166,6 +166,26 @@ def panagram(sentence):
 print(panagram("The quick brown fox jumps over the lazy dog"))
 
 
+12
+#finding missing character to make two string anagram
+# ex "abcd" "cbe" return: "d"
+
+def miss_anagram(str1 ,str2):
+    freq = {}
+
+    for ch in str1:
+        freq[ch] = freq.get(ch, 0) + 1
+
+    for ch in str2:
+        freq[ch] = freq.get(ch,0) - 1
+
+    for ch , count in freq.items():
+        if count != 0:
+            return ch
+    return None
+
+print(miss_anagram("abcd" , "abc"))
+
 
 
 
