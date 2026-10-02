@@ -1,39 +1,22 @@
-from abc import ABC , abstractmethod
 
-class payment(ABC):
-    @abstractmethod
-    def pay(self,amount):
-        pass
+# class Person:
+#     count = 0
 
-    @abstractmethod
-    def validate(self):
-        pass
+#     def __init__(self, name, age):
+#         self.name, self.age = name, age
+#         Person.count += 1
 
-class creditcard(payment):
-    def pay(self,amount):
-        print(f'credit card se {amount} pay hua')
-    
-    def validate(self):
-        print("creditcard validate hua")
+#     def greet(self):                        # instance
+#         return f"Hi {self.name}"
 
-class upi(payment):
-    def pay(self,amount):
-        print(f'UPI se {amount} pay hua')
-    
-    def validate(self):
-        print("UPI validate hua")
+#     @classmethod
+#     def from_string(cls, s):                # alt constructor
+#         name, age = s.split("-")
+#         return cls(name, int(age))
 
-class cash(payment):
-    def pay(self,amount):
-        print(f'cash se {amount} pay hua')
-    
-    def validate(self):
-        print("cash validate hua")
+#     @staticmethod
+#     def is_adult(age):                      # utility
+#         return age >= 18
 
-def process_payment(payment, amount):
-    payment.pay(amount)
-    payment.validate()
-
-process_payment(creditcard(), 5000)
-process_payment(upi(), 1000)
-process_payment(cash(), 3000)
+# p = Person.from_string("Raj-25")
+# print(p.greet(), Person.is_adult(p.age), Person.count)
