@@ -168,3 +168,18 @@ print(longest("I love programming"))
 # String compression — Consecutive same characters ko character+count me convert karo.
 # Input: "aabcccccaaa" → Output: "a2b1c5a3" (aa→a2, b→b1, ccccc→c5, aaa→a3)
 
+
+# fibonicci sereis
+def fibonacci(n):
+    if n == 1:
+        return [0]
+    
+    fib = [0, 1]   # pehle do term fix
+    
+    for i in range(2, n):
+        next_term = fib[i-1] + fib[i-2]   # pichle do ka sum
+        fib.append(next_term)
+    
+    return fib[:n]
+
+print(fibonacci(6))   # [0, 1, 1, 2, 3, 5]

@@ -5,9 +5,9 @@
 def two_sum(arr,target):
     seen = {}
     for i in range(len(arr)):
-        complement = target - arr[i]
-        if complement in seen:
-            return [seen[complement] , i]
+        total = target - arr[i]
+        if total in seen:
+            return [seen[total] , i]
         seen[arr[i]] = i
     return []
 
@@ -113,9 +113,9 @@ print(check_duplicate([1,2,3,1,2]))
 # Approach: Agar 1 se N tak saare numbers hote, to unka sum ek formula se pata chal sakta hai: N*(N+1)/2. Actual array ka sum nikalo, expected sum se ghatao — jo bacha wahi missing number hai.
 
 def missing_no(arr,n):
-    axpected_sum = n * (n+1) // 2
+    expected_sum = n * (n+1) // 2
     actual_sum = sum(arr)
-    return axpected_sum - actual_sum
+    return expected_sum - actual_sum
 
 print(missing_no([1,2,4,5],5))
 

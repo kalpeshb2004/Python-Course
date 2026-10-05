@@ -48,11 +48,11 @@ def  palindrome(s):
     right = len(s) - 1
 
     while left < right:
-        if s[left] != s[right]:
-            return False
+        if s[left] == s[right]:
+            return True
         left += 1
         right -= 1
-    return True
+    return False
 
 print(palindrome("madam"))
 
