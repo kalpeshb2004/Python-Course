@@ -79,3 +79,100 @@ def searchWord_prefix(sentence,searchWord):
             return i+1
     return []
 print(searchWord_prefix("i love eating burger","burg"))
+
+
+# **2. Do strings pe parallel pointers**
+
+# - Is Subsequence (392): tumne kar liya hai
+# - Merge Strings Alternately (1768): `"abc"`, `"pqr"` → `"apbqcr"`
+# - Count matching characters at same index of two strings
+# - Check if two strings are equal after ignoring spaces (do pointers se)
+
+# day 2 
+# example 6
+# - Merge Strings Alternately (1768): `"abc"`, `"pqr"` → `"apbqcr"`
+
+def alternate_string(str1,str2):
+    i = 0
+    result = ""
+
+    while i < len(str1) and i < len(str2):
+        result += str1[i]
+        result += str2[i]
+        i += 1
+
+    result += str1[i:]
+    result += str2[i:]
+
+    return result
+
+print(alternate_string("abc","pqr"))
+
+# Do strings s aur t hain. Check karo s, t ka subsequence hai kya.
+# Example 7
+# Input: s = "abc", t = "ahbgdc"
+# Output: True
+
+def is_subsequence(s,t):
+    i = 0
+    j = 0
+    while i < len(s) and j < len(t):
+        if s[i] == t[j]:
+            i += 1
+        j += 1
+
+    return i == len(s)
+
+print(is_subsequence("abc","ahbgdc"))
+
+# Do strings diye hain. Dono me same position pe kitne characters barabar hain, woh count karo.
+
+# Example 8
+# Input: str1 = "hello", str2 = "hallo"
+# Output: 4
+# (position 0: h=h, 1: e≠a, 2: l=l, 3: l=l, 4: o=o, to 4 match)
+
+def count_match(str1,str2):
+    i = 0
+    count = 0
+    while i < len(str1) and i < len(str2):
+        if str1[i] == str2[i]:
+            count += 1
+        i += 1
+    return count
+print(count_match("hello","hallo"))
+            
+# Do strings diye hain. Spaces hata dene ke baad dono barabar hain kya, check karo. Yeh do pointers se karna hai, replace() ya naya string banaye bina.
+
+# Example 9
+# Input: str1 = "he llo", str2 = "hel lo"
+# Output: True
+# (spaces hatane par dono "hello")
+
+def spaces_ignore_match(str1,str2):
+    i = 0
+    j = 0
+    while i < len(str1) and j < len(str2):
+        while i < len(str1) and not str1[i].isalnum():
+            i += 1
+        while j < len(str2) and not str2[j].isalnum():
+            j += 1
+
+        if str1[i] != str2[j]:
+            return False
+
+        i += 1
+        j += 1
+        
+    return True
+print(spaces_ignore_match("he llo","hel lo"))
+
+# day 2 same day
+# **3. Opposite-end (easy)**
+
+# - Valid Palindrome II (680): tumne kiya hai, bas bina copy ke try karo
+# - Move all 1s to right in binary array
+# - Sort 0s and 1s (binary array sort)
+# - Sort Colors (75): 0, 1, 2 (thoda medium, last me karna)
+# - Squares of sorted array: tumne kar liya hai
+
