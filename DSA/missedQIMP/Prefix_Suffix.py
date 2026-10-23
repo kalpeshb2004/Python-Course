@@ -176,3 +176,102 @@ print(spaces_ignore_match("he llo","hel lo"))
 # - Sort Colors (75): 0, 1, 2 (thoda medium, last me karna)
 # - Squares of sorted array: tumne kar liya hai
 
+# - palindrome one after removal (680): tumne kiya hai
+# Input: "abca"
+# Output: True
+# (b ya c hata do to "aca" ya "aba" ban jaata)
+
+def palindrome_one(str1):
+    str1 = list(str1)
+    left = 0
+    right = len(str1) - 1
+
+    while left < right:
+        if str1[left] != str1[right]:
+            temp = str1.copy()
+            temp.pop(left)
+
+            if temp == temp[::-1]:
+                return True
+
+            temp = str1.copy()
+            temp.pop(right)
+
+            if temp == temp[::-1]:
+                return True
+            return False
+
+        left += 1
+        right -= 1
+    return True
+
+print(palindrome_one("abca"))
+
+# - Valid Palindrome II (680): tumne kiya hai, bas bina copy ke try karo
+# 4. Valid palindrome (ignore spaces/punctuation, case)
+# Input: "A man, a plan, a canal: Panama"
+
+def valid_palindrome(sentence):
+    left = 0
+    right = len(sentence) - 1
+
+    while left < right:
+        while left < right and not sentence[left].isalnum():
+            left += 1
+        while left < right and not sentence[right].isalnum():
+            right -= 1
+
+        if sentence[left].lower() != sentence[right].lower():
+            return False
+        
+        left += 1
+        right -= 1
+
+    return True
+
+print(valid_palindrome("A man, a plan, a canal: Panama"))
+
+# Example 
+# Input: [1, 0, 1, 0, 1, 0]
+# Output: [0, 0, 0, 1, 1, 1]
+    
+def move_1s(lst):
+    left = 0
+    right = len(lst) - 1
+
+    while left < right:
+        while left < right and lst[left] != 1:
+            left += 1
+        while left < right and lst[right] != 0:
+            right -= 1
+
+        lst[left] , lst[right] = lst[right] , lst[left]
+    return lst
+print(move_1s([1, 0, 1, 0, 1, 0]))
+
+# - Squares of sorted array: tumne kar liya hai
+# Ek array diya hai jo sorted (ascending) hai, par usme negative numbers bhi ho sakte hain. Har number ka square nikalo aur result bhi sorted (ascending) order me return karo.
+
+# Example 1
+# Input: [-4, -1, 0, 3, 10]
+# Output: [0, 1, 9, 16, 100]
+
+def sq_array(arr):
+    left = 0
+    right = len(arr) - 1
+    result = []
+    
+    while left <= right:
+        left_sqr = arr[left] ** 2
+        right_sqr = arr[right] ** 2
+
+        if left_sqr > right_sqr:
+            result.append(left_sqr)
+            left += 1
+        else:
+            result.append(right_sqr)
+            right -= 1
+
+    return result[::-1]
+
+print(sq_array([-4, -1, 0, 3, 10]))
