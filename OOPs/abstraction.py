@@ -158,10 +158,192 @@
 # run_query(MySQLConnection(),"SELECT * FROM")
 # run_query(MongoDBConnection(), "db.users.find()")
 
+# ✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️
+# Revision example 1.1
+# Project 1: Animal 
 
-        
-       
-        
+# Animal(ABC), abstract sound()
+# Dog, Cat → sound implement
+# Loop me sab ka sound() call
+
+# Chhota hai. Pehle ye likh. Phir Payment, Shape.
+
+# from abc import ABC , abstractmethod
+
+# class Animal(ABC):
+#     @abstractmethod
+#     def sound(self):
+#         pass
+
+# class Dog(Animal):
+#     def sound(self):
+#         return f"bhow"
+    
+# class Cat(Animal):
+#     def sound(self):
+#         return f"meow"
+
+# Animal = [Dog() , Cat()]
+# for a in Animal:
+#     print(a.sound())
+
+# bina dekhe dobara likh. Phir Vehicle(ABC) (start(), Car, Bike) likh.
+
+from abc import ABC , abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        return "car has started"
+
+class Bike(Vehicle):
+    def start(self):
+        return "Bike has started"
+
+Vehicles = [Car(),Bike()]
+for v in Vehicles:
+    print(v.start())
+
+# Project: Payment System, example : 1.2 
+# Task
+# Payment(ABC): abstract pay(amount).
+# Concrete method receipt(amount) (sab child ko mile, override nahi).
+# Child: UPI, Card, NetBanking → pay() implement.
+# Loop me sab call.
+# Bonus: amount <= 0 → ValueError.
+# Pehle khud likh
+
+# Hint structure:
+
+# Payment(ABC)
+#  ├─ @abstractmethod pay(self, amount)
+#  └─ receipt(self, amount)        # concrete
+# UPI(Payment)     → pay
+# Card(Payment)    → pay
+# NetBanking(Payment) → pay
+
+from abc import ABC , abstractmethod
+
+class Payment(ABC):
+    @abstractmethod
+    def pay(self,amount):
+        pass
+
+    def receipt(self, amount):
+        return f"amount {amount} has paid vai comcrete"
+
+class UPI(Payment):
+    def pay(self,amount):
+        if amount <= 0:
+            raise ValueError("insufficint UPI amount")
+        return f"UPI amount {amount} has paid"
+
+class Card(Payment):
+    def pay(self,amount):
+        if amount <= 0:
+            raise ValueError("insufficint Card amount")
+        return f"Card amount {amount} has paid"
+
+class NetBanking(Payment):
+    def pay(self, amount):
+        if amount <= 0:
+            raise ValueError("insufficint Netbanking amount")
+        return f"NetBanking amount {amount} has paid"
+
+result = [UPI() , Card(), NetBanking()]
+for r in result:
+    print(r.receipt(1000))
+    print(r.pay(500))
+
+# example 1.3
+# Project: Shape (Abstraction + Polymorphism)
+# Task
+# Shape(ABC): 2 abstract methods → area(), perimeter().
+# Concrete method describe() → "Circle: area=78.5, perimeter=31.4" (parent me, sab reuse).
+# Child: Circle(r), Rectangle(w, h), Triangle(a, b, c).
+# Loop me sab ka describe() call.
+# Bonus: negative/zero side → ValueError.
+
+# Hint structure
+# Shape(ABC)
+#  ├─ @abstractmethod area()
+#  ├─ @abstractmethod perimeter()
+#  └─ describe()            # concrete, self.area() call kare
+
+# Circle    → area, perimeter
+# Rectangle → area, perimeter
+# Triangle  → area (Heron), perimeter
+
+# Formula
+# Circle: π r², 2 π r
+# Rectangle: w * h, 2 * (w + h)
+# Triangle (Heron): s = (a+b+c)/2, area = (s(s-a)(s-b)(s-c)) ** 0.5
+
+import math
+from abc import ABC ,abstractmethod
+
+class shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+    def describe(self):
+        return (f"{self.__class__.__name__}"
+                f"area={self.area():.2f}, "
+                f"perimeter={self.perimeter():.2f}, ")
+
+class circle(shape):
+    def __init__(self,r):
+        if r <= 0:
+            raise ValueError("radius should be larger than 0")
+        self.r = r
+
+
+    def area(self):
+        return math.pi * self.r **2
+    
+    def perimeter(self):
+        return 2 * math.pi * self.r
+
+class reactangle(shape):
+    def __init__(self,w,h):
+        if w<=0 or h<=0:
+            raise ValueError("w and h must be larger than 0")
+        self.w,self.h = w,h
+
+    def area(self):
+        return self.w * self.h
+
+    def perimeter(self):
+        return 2 * (self.w + self.h)
+
+class taringle(shape):
+     def __init__(self,a,b,c):
+         if min(a,b,c) <= 0 or a+b <= c or a+c <= b or b+c <= a:
+             raise ValueError("a , b , c are incorrect value")
+         self.a,self.b,self.c = a,b,c
+
+     def area(self):
+        s = self.perimeter() / 2
+        return (s * (s - self.a) * (s - self.b) * (s - self.c)) ** 0.5
+
+     def perimeter(self):
+        return self.a + self.b + self.c
+
+result = [circle(5) , reactangle(10,4) , taringle(3,4,5)]
+for r in result:
+    print(r.describe())
+
+      
+         
 
 
 
