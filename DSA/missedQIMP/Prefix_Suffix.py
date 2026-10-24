@@ -275,3 +275,94 @@ def sq_array(arr):
     return result[::-1]
 
 print(sq_array([-4, -1, 0, 3, 10]))
+
+
+# day 3
+# **4. Slow/Fast (easy)**
+
+# - Find first and last occurrence using two pointers
+# - Remove all occurrences of a value from string
+# - Replace spaces in a string (in-place style)
+# - Check if array is sorted
+
+# Q: Find first and last occurrence using two pointers
+
+# Ek array aur ek target diya hai. Array me target pehli baar kis index pe aaya aur aakhri baar kis index pe, dono batao. Do pointers se karna hai (ek shuru se, ek end se).
+
+# Example 1
+# Input: arr = [1, 2, 3, 2, 4, 2, 5], target = 2
+# Output: (1, 5)
+# (2 pehli baar index 1 pe, aakhri baar index 5 pe)
+
+def first_last_occurence(arr,target):
+    left = 0
+    right = len(arr) - 1
+    result = []
+
+    while left < right:
+        while left < right and arr[left] != target:
+            left += 1
+        while left < right and arr[right] != target:
+            right -= 1
+
+        result.append(left)
+        result.append(right)
+        break
+    return result
+print(first_last_occurence([1,2,3],9))
+
+# Ek string aur ek character (value) diya hai. String me se us character ke saare occurrences hata do, baaki characters ka order same rakhna hai.
+
+# Example 1
+# Input: s = "programming", value = "r"
+# Output: "pogamming"
+
+def remove_char(str,value):
+    str = list(str)
+    slow = 0
+
+    for fast in range(len(str)):
+        if str[fast] != value:
+            str[slow] = str[fast]
+            slow += 1 
+
+    return "".join(str[:slow])
+
+print(remove_char("programming","r"))
+
+
+# Q: Replace spaces in a string (in-place style)
+
+# Ek string diya hai. Usme jahan bhi space hai, use %20 se badal do. Baaki characters ka order same rahe.
+
+# Example 1
+# Input: "my name is"
+# Output: "my%20name%20is"
+
+def replace_spaces(s, replace):
+    result = []
+
+    for ch in s:
+        if ch == " ":
+            result.append(replace)   # space ki jagah %20
+        else:
+            result.append(ch)        # baaki jaise the
+
+    return "".join(result)
+
+print(replace_spaces("my name is", "%20"))   # my%20name%20is
+
+# Ek array diya hai. Check karo woh ascending (chhote se bade) order me sorted hai ya nahi. Sorted hai to True, warna False.
+
+# Example 1
+# Input: [1, 2, 3, 4, 5]
+# Output: True
+
+def sorted_array_check(arr):
+
+    for fast in range(len(arr)-1):
+        if arr[fast] > arr[fast + 1]:
+            return False
+    return True
+    
+print(sorted_array_check([1, 2, 3, 4, 5]))
