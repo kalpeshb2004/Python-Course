@@ -95,65 +95,111 @@
 
 #Hierarchical = ek baap kai bete
 
-class shape:
-    def __init__(self,color):
-        self.color = color
+# class shape:
+#     def __init__(self,color):
+#         self.color = color
 
-    def draw(self):
-        print("drawing with color")
+#     def draw(self):
+#         print("drawing with color")
 
-    def area(self):
-        print("parent shape area\n")
+#     def area(self):
+#         print("parent shape area\n")
     
     
-class circle(shape):
-    def __init__(self, color,radius):
-        super().__init__(color)
-        self.radius = radius
+# class circle(shape):
+#     def __init__(self, color,radius):
+#         super().__init__(color)
+#         self.radius = radius
     
-    def area(self):
-        super().area()
-        print(f'area of circle: {3.14 * self.radius * self.radius}')
+#     def area(self):
+#         super().area()
+#         print(f'area of circle: {3.14 * self.radius * self.radius}')
     
-    def draw(self):
-        super().draw()
-        print(f'drawing {self.color} circle\n')
+#     def draw(self):
+#         super().draw()
+#         print(f'drawing {self.color} circle\n')
     
 
-class rectangle(shape):
-    def __init__(self, color,length,width):
-        super().__init__(color)
-        self.length = length
-        self.width = width
+# class rectangle(shape):
+#     def __init__(self, color,length,width):
+#         super().__init__(color)
+#         self.length = length
+#         self.width = width
     
-    def area(self):
-        super().area()
-        print(f'area of ractangle: {self.length * self.width}')
+#     def area(self):
+#         super().area()
+#         print(f'area of ractangle: {self.length * self.width}')
     
-    def draw(self):
-        super().draw()
-        print(f'drawing {self.color} rectangle\n')
+#     def draw(self):
+#         super().draw()
+#         print(f'drawing {self.color} rectangle\n')
 
-class traingle(shape):
-    def __init__(self, color,base,height):
-        super().__init__(color)
-        self.base = base
-        self.height = height
+# class traingle(shape):
+#     def __init__(self, color,base,height):
+#         super().__init__(color)
+#         self.base = base
+#         self.height = height
     
-    def area(self):
-        super().area()
-        print(f'area of traingle: {(1/2) * self.base * self.height}')
+#     def area(self):
+#         super().area()
+#         print(f'area of traingle: {(1/2) * self.base * self.height}')
 
-    def draw(self):
-        super().draw()
-        print(f'drawing {self.color} traingle')
+#     def draw(self):
+#         super().draw()
+#         print(f'drawing {self.color} traingle')
 
-crl = circle("red" , 10); crl.area(); crl.draw()
-rect = rectangle("white",10,20); rect.area(); rect.draw()
-tri = traingle("bhagwa",10,20); tri.area(); tri.draw() 
+# crl = circle("red" , 10); crl.area(); crl.draw()
+# rect = rectangle("white",10,20); rect.area(); rect.draw()
+# tri = traingle("bhagwa",10,20); tri.area(); tri.draw() 
 
 
+# ✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️✍️
+# Project: Vehicle chain
 
-        
-    
-        
+# Vehicle(brand, speed) → info()
+# Car(Vehicle) → extra doors, info() override with super()
+# ElectricCar(Car) → extra battery (multilevel)
+# Bike(Vehicle) → extra has_gear (hierarchical)
+# Sab ka info() loop me call.
+
+class vehicle:
+    def __init__(self,brand,name):
+        self.brand = brand
+        self.name = name
+
+    def info(self):
+        return f"{self.brand} is real {self.name}"
+
+class car(vehicle):
+    def __init__(self,brand,name,doors):
+        super().__init__(brand,name)
+        self.doors = doors
+
+    def info(self):
+        return f"{self.brand} is real {self.name} ha {self.doors}"
+
+class electricCar(car):
+    def __init__(self,brand,name,doors,battery):
+            super().__init__(brand,name,doors)
+            self.battery = battery
+
+    def info(self):
+        return f"{self.brand} is real {self.name} ha {self.battery}"
+
+class bike(vehicle):
+     def __init__(self,brand,name,has_gear):
+        super().__init__(brand,name)
+        self.has_gear = has_gear
+
+     def info(self):                                  # override
+        return super().info() + f", gear={self.has_gear}"
+
+vehicles = [
+    car("Suzuki", "Swift", 4),
+    electricCar("Tata", "Nexon EV", 4, 40),
+    bike("Yamaha", "R15", True),
+]
+for v in vehicles:
+    print(v.info())
+
+
