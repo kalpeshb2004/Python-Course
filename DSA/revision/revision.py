@@ -128,3 +128,48 @@ print(merge_sorted([1,2,3,4],[5,6,7,8,9]))
 # Hashing → Two Sum, Anagram, First Non-Repeating
 
 # anagram listen and silent true 
+def anagram(str1,str2):
+    if len(str1) != len(str2):
+        return False
+    freq = {}
+
+    for ch in str1:
+        freq[ch] = freq.get(ch,0) + 1
+    for ch in str2:
+        freq[ch] = freq.get(ch,0) - 1
+
+    for count in freq.values():
+        if count != 0:
+            return False
+    return True
+
+print(anagram("silent","listen"))
+
+
+# Two Sum
+# two sum
+# arr = [1,4,2,15,7,11], target = 15
+
+def unsorted_two_sum(arr,target):
+    seen = {}
+
+    for i in range(len(arr)):
+        total = target - arr[i]
+        if total in seen:
+            return [seen[total] , i]
+        seen[arr[i]] = i
+    return []
+
+print(unsorted_two_sum([1,4,2,15,7,11],15))
+
+#  First Non-Repeating
+def non_repeat_char(str1):
+    freq = {}
+    for ch in str1:
+        freq[ch] = freq.get(ch,0) + 1
+
+    for ch in str1:
+        if freq[ch] == 1:
+            return ch
+    return str1
+print(non_repeat_char("swisserland"))
