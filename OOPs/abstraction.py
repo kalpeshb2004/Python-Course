@@ -230,11 +230,11 @@ from abc import ABC , abstractmethod
 
 class Payment(ABC):
     @abstractmethod
-    def pay(self,amount):
+    def pay(self,amount): #abstract method
         pass
 
     def receipt(self, amount):
-        return f"amount {amount} has paid vai comcrete"
+        return f"amount {amount} has paid vai comcrete" #concrete method
 
 class UPI(Payment):
     def pay(self,amount):
