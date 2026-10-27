@@ -203,3 +203,102 @@ for v in vehicles:
     print(v.info())
 
 
+# Pillar 3: Inheritance (Part 2)
+# Aaj: multiple, hybrid, MRO, diamond, super() deep, mixin.
+
+class parent:
+    def hi(self): return "parent"
+
+class mother:
+    def by(self): return "mother"
+
+class child(parent,mother):
+    pass
+
+c = child()
+print(c.hi(),c.by())
+
+# multilevel + multiple + with __mro__ 
+class father:
+    def hi(self): print("father")
+
+class mother1(father):
+    def hi(self): print("mother1"); super().hi()
+
+class mother2(father):
+    def hi(self): print("mother2"); super().hi()
+
+class child(mother1,mother2):
+    def hi(self): print("mother1,mother2"); super().hi()
+
+child().hi()
+print(child.__mro__)
+
+# agar multiple me mro hua to super() lagega aur 
+# pehele child mother1,mother2 then father print hoga 
+
+# __init__ + multiple 
+class a:
+    def __init__(self):
+        print("a")
+
+class b(a):
+    def __init__(self):
+        print("b")
+        super().__init__()
+
+class c(a):
+    def __init__(self):
+        print("c")
+        super().__init__()
+
+class d(b,c):
+    def __init__(self):
+        print("d")
+        super().__init__()
+
+d()
+
+# Project 1: Diamond
+# A → B, C → D banao. Har class hi() me naam print + super().hi(). Output predict kar, phir
+
+class a:
+    def hi(self): print("a")
+
+class b(a):
+    def hi(self): print("b"); super().hi()
+
+class c(a):
+    def hi(self): print("c"); super().hi()
+
+class d(b,c):
+    def hi(self): print("d"); super().hi()
+
+d()
+
+# Person(name) → Student(Person) (roll) + Employee(Person) (salary) → Intern(Student, Employee). info() me sab dikhe. __mro__ print kar.
+
+class person:
+    def info(self):
+        print("name is kalpesh"); 
+
+class student(person):
+    def info(self):
+        print("roll is 232"); super().info()
+
+class employee(person):
+    def info(self):
+        print("salary is 10000"); super().info()
+
+class intern(student,employee):
+    def info(self):
+        print("i am intern"); super().info()
+    
+intern().info()
+print(intern.__mro__)
+
+
+
+
+
+
