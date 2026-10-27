@@ -279,24 +279,35 @@ d()
 # Person(name) → Student(Person) (roll) + Employee(Person) (salary) → Intern(Student, Employee). info() me sab dikhe. __mro__ print kar.
 
 class person:
+    def __init__(self,name,**kwargs):
+        super().__init__(**kwargs)
+        self.name = name
+
     def info(self):
-        print("name is kalpesh"); 
+        return f"name is {self.name}"
 
 class student(person):
+    def __init__(self,roll,**kwargs):
+        super().__init__(**kwargs)
+        self.roll = roll
+
     def info(self):
-        print("roll is 232"); super().info()
+        return f"roll is {self.roll} , " + super().info()
 
 class employee(person):
+    def __init__(self,salary,**kwargs):
+        super().__init__(**kwargs)
+        self.salary = salary
+
     def info(self):
-        print("salary is 10000"); super().info()
+        return f"salary is {self.salary} , " + super().info()
 
 class intern(student,employee):
-    def info(self):
-        print("i am intern"); super().info()
-    
-intern().info()
-print(intern.__mro__)
+    pass
 
+i = intern(name="kalpesh" ,roll= 6, salary = 10000)
+print(i.info())
+print(intern.__mro__)
 
 
 
