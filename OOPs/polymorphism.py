@@ -100,3 +100,39 @@ def process_report(report):
 process_report(PDFReport())
 process_report(ExcelReport())
 process_report(WordReport())
+
+
+# Email, SMS, Push (koi common parent nahi, duck typing)
+# Sabme send(msg) → "Email: hello" jaisa return
+# notify_all(channels, msg) function → loop me sab ka send call
+# Bonus: naya WhatsApp class add karo, notify_all badle bina chale
+
+class email:
+    def send(self,msg):
+        return f"email: {msg}"
+
+class sms:
+    def send(self,msg):
+        return f"sms : {msg}"
+
+class push:
+    def send(self,msg):
+        return f"push: {msg}"
+
+class whatsapp:
+    def send(self,msg):
+        return f"whatsapp : {msg}"
+
+def notify_all(channels,msg):
+    for x in channels:
+        print(x.send(msg))
+
+notify_all([email(),sms(),push(),whatsapp()],"hello")
+
+# add(*args) → kitne bhi numbers ka sum
+class summer:
+    def add(self,*args):
+        return sum(args)
+s = summer()
+print(s.add(1,2,3))
+       
