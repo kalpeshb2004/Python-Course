@@ -136,5 +136,119 @@ class summer:
 s = summer()
 print(s.add(1,2,3))
 
+# vector example
+class vector:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
 
-       
+    def __add__(self,other):
+        return vector(self.x + other.x , self.y + other.y)
+
+    def __sub__(self,other):
+        return vector(self.x - other.x , self.y - other.y)
+
+    def __mul__(self,k):
+        return vector(self.x * k , self.y * k)
+
+    def __eq__(self,other):
+        return (self.x,self.y) == (other.y,other.y)
+
+    def __str__(self):
+        return f"{self.x} , {self.y}"
+
+    def __repr__(self):
+        return f"{self.x} , {self.y}"
+
+v1 = vector(10,20)
+v2 = vector(5,4)
+print(v1 + v2)
+print(v1 - v2)
+print(v1 * 2)
+print(v1 == vector(1, 2))   # True
+
+# single dispatch
+from functools import singledispatch
+
+@singledispatch
+def show(x):
+    print("object :" , x)
+
+@show.register(int)
+def _(x):
+    print("int value :" , x)
+
+@show.register(str)
+def _(x):
+    print("string : " ,x)
+
+@show.register(list)
+def _(x):
+    print("list :" ,x)
+
+show(5)
+show("kalpesh")
+show([1,2,3])
+show(2.5)  
+
+# Project 1: Money
+
+# __init__(amt)
+# +, -, ==, <, __str__, __repr__
+# Money + number aur number + Money dono chale
+
+class money:
+    def __init__(self,number,money):
+        self.number = number
+        self.money = money
+
+    def __add__(self,other):
+        return money(self.money + other.money, self.number + other.number)
+
+    def __sub__(self,other):
+        return money(self.money - other.money, self.number - other.number)
+
+    def __str__(self):
+        return f"{self.money} ,{self.number}"
+
+    def __repr__(self):
+        return f"{self.money} ,{self.number}"
+
+m1 = money(10,20)
+m2 = money(30,40)
+print(m1 + m2)
+print(m1 - m2)
+print(10,20)
+print(10,30)
+
+
+# Project 3: Dispatch
+# describe(x) singledispatch se: int, str, list, dict ke liye alag message
+
+from functools import singledispatch
+
+@singledispatch
+def describe(x):
+    print("object :" ,x)
+
+@describe.register(int)
+def _(x):
+    print("int type value : ",x)
+
+@describe.register(str)
+def _(x):
+    print("str type of string :",x)
+
+@describe.register(list)
+def _(x):
+    print("list type of element :",x)
+
+@describe.register(dict)
+def _(x):
+    print("dict type of value :",x)
+
+describe(20)
+describe("kalpesh")
+describe([1,2,3,4,5])
+describe({"name" : "kalpesh"})
+
