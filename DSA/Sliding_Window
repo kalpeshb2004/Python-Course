@@ -177,5 +177,72 @@ print(diet_plan([1,2,3,4,5],1,3,3))
 pass
 
 
+# difficult 
+# **4. Find the K-Beauty of a Number (LeetCode 2269)**
+# Number ko string maano. Size `k` ki har substring ko number banao. Jo number `num` ko poora divide kare (aur zero na ho), use gino.
+# Input: `num=240`, k=2 → Output: `2` (`24` aur `40`)
+
+def kbeauty(num, k):
+    num_str = str(num)
+    n = len(num_str)
+    if n < k:
+        return 0
+
+    count = 0
+
+    for i in range(n - k + 1):
+        sub = int(num_str[i:i + k])     # har window ko number banao
+        if sub != 0 and num % sub == 0:
+            count += 1
+
+    return count
+
+print(kbeauty(240, 2))   # 2
+
+# **5. Minimum Difference Between Highest and Lowest of K Scores (LeetCode 1984)**
+# Array me se `k` scores chuno jinme sabse bade aur sabse chhote ka farak **minimum** ho. Hint: pehle sort karo.
+# Input: `[9,4,1,7]`, k=2 → Output: `2`
+        # [1,4,7,9]
+def min_difference(arr, k):
+    n = len(arr)
+    if k > n:
+        return 0
+
+    arr.sort()
+    best = arr[k - 1] - arr[0]          # pehli window
+
+    for i in range(1, n - k + 1):
+        best = min(best, arr[i + k - 1] - arr[i])
+
+    return best
+
+print(min_difference([9, 4, 1, 7], 2))   # 2
+    
+
+# **6. First Negative Integer in Every Window of Size K**
+# Har window me **pehla negative number** batao. Negative na ho to `0`.
+# Input: `[12,-1,-7,8,-15,30,16,28]`, k=3 → Output: 
+# `[-1,-1,-7,-15,-15,0]`
+
+
+def nagtive_first(arr,k):
+    n = len(arr)
+    if n < k:
+        return 0
+
+    result = []
+    for i in range(n - k + 1):
+        window = arr[i:i+k]
+        for j in range(len(window)):
+            if window[j] < 0:
+                result.append(window[j])
+                break
+        else:
+            result.append(0)
+        
+    return result
+
+print(nagtive_first([12,-1,-7,8,-15,30,16,28],3))
+            
 
     
