@@ -135,4 +135,6 @@ class summer:
         return sum(args)
 s = summer()
 print(s.add(1,2,3))
+
+
        
