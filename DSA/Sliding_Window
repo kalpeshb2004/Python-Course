@@ -205,7 +205,7 @@ print(kbeauty(240, 2))   # 2
         # [1,4,7,9]
 def min_difference(arr, k):
     n = len(arr)
-    if k > n:
+    if n < k :
         return 0
 
     arr.sort()
@@ -243,6 +243,50 @@ def nagtive_first(arr,k):
     return result
 
 print(nagtive_first([12,-1,-7,8,-15,30,16,28],3))
-            
 
+
+# Har window me kitne **alag-alag (unique)** numbers hain, list me batao. Yahan Hashing aur Sliding Window dono mix hote hain.
+# Input: `[1,2,1,3,4,2,3]`, k=4 → Output: `[3,4,4,3]`
+            
+def unique1(arr,k):
+    n = len(arr)
+    if n < k:
+        return 0
+
+    result = []
+    for i in range(n-k+1):
+        sub_window = arr[i:i+k]
+        freq = {}
+        for ch in sub_window:
+            freq[ch] = freq.get(ch,0) + 1
+
+        result.append(len(freq))
+    return result
+
+print(unique1([1,2,1,3,4,2,3],4))
+
+
+# **8. Contains Duplicate II (LeetCode 219)**
+# Check karo koi do equal numbers aise hain jinke **index ka farak `k` ya usse kam** ho.
+# Input: `[1,2,3,1]`, k=3 → Output: `True`
+
+def duplicate(arr, k):
+    seen = {}
+
+    for i in range(len(arr)):
+        if arr[i] in seen and i - seen[arr[i]] <= k:
+            return True
+        seen[arr[i]] = i
+
+    return False
+
+print(duplicate([1, 2, 3, 1], 3))        # True
+print(duplicate([1, 2, 3, 1, 2, 3], 2))  # False
+
+# defficult
+# Sirf **shuru ya end** se ek-ek card utha ke total `k` cards lene hain. Maximum points batao. Sochna: jo cards **nahi** liye, unka kya hoga?
+
+# Input: `[1,2,3,4,5,6,1]`, k=3 → Output: `12`
+
+pass
     
