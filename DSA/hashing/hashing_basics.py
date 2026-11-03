@@ -209,6 +209,16 @@ def lon_substring(s: str) -> str:
 
 print(lon_substring("abcabcbb"))
 
+# Dry run: "abcabcbb"
+# right	ch	Kya hua	Window	seen
+# 0	a	add	a	{a}
+# 1	b	add	ab	{a,b}
+# 2	c	add	abc (best = 3)	{a,b,c}
+# 3	a	duplicate! a hatao, left=1, phir add	bca	{b,c,a}
+# 4	b	duplicate! b hatao, left=2, phir add	cab	{c,a,b}
+# 5	c	duplicate! c hatao, left=3, phir add	abc	{a,b,c}
+# 6	b	a hatao, b hatao (left=5), phir add	cb	{c,b}
+# 7	b	c hatao, b hatao (left=7), phir add	b	{b}
 
 
 
