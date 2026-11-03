@@ -342,6 +342,30 @@ result = [circle(5) , reactangle(10,4) , taringle(3,4,5)]
 for r in result:
     print(r.describe())
 
+
+# INTERFACE
+# example : 
+from abc import ABC , abstractmethod
+class MainOne(ABC):
+    @abstractmethod
+    def car(self):
+        pass
+
+class chileOne(ABC):
+    @abstractmethod
+    def bike(self):
+        pass
+
+class baapOne(MainOne,chileOne):
+    def car(self):
+        return "car is driving\n"
+
+    def bike(self):
+        return "bike is riding"
+
+d = baapOne()
+print(d.car(),d.bike())
+
       
          
 
