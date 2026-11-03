@@ -107,6 +107,63 @@ b.deposit(500)
 b.withdraw(200)
 print("amount : ", b.get_balance)
 
+# ABC use karke Payment abstract class banao, pay() abstract method ke saath. UPI aur Card classes banao.
+
+from abc import ABC, abstractmethod
+class payment(ABC):
+    @abstractmethod
+    def pay(self,amt,money):
+        pass
+
+class upi(payment):
+    def __init__(self,amt):
+        self.amt = amt
+
+    def pay(self):
+        return f"amount has paid by upi : {self.amt}"
+
+class cart(payment):
+    def __init__(self,amt):
+        self.amt = amt
+
+    def pay(self):
+        return f"amount has paid by cart : {self.amt}"
+
+s = [upi(200),cart(400)]
+for shape in s:
+    print(shape.pay())
+
+# Employee class mein @classmethod (e.g. string “Ravi-5000” se object banao) aur @staticmethod (e.g. is_workday(day)).
+
+class employee:
+    def __init__(self,name,salary):
+        self.name = name
+        self.salary = salary
+
+    @classmethod
+    def from_string(cls,stri_form):
+        name , salary = stri_form.split("-")
+        return cls(name,int(salary))
+
+    @staticmethod
+    def is_workday(day):
+        return day.lower() not in ("saturday" , "sunday")
+
+    def display(self):
+        return f"name : {self.name}\n salary : {self.salary}"
+
+e1 = employee("kalpesh" , 150000)
+e2 = employee.from_string("kalpesh-150000")
+
+print(e1.display())
+print(e2.display())
+
+print(employee.is_workday("monday"))
+print(employee.is_workday("saturday"))
+
+
+
+
 
     
     
