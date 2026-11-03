@@ -186,6 +186,28 @@ def miss_anagram(str1 ,str2):
 
 print(miss_anagram("abcd" , "abc"))
 
+# longest substring with non repeating character 
+
+def lon_substring(s: str) -> str: 
+# s = input he , : str = input string honi chaiye , -> str = function string return karega 
+    seen = set()
+    left = 0
+    best_start = 0
+    best_len = 0
+
+    for right , ch in enumerate(s):
+        while ch in seen:
+            seen.remove(s[left])
+            left += 1
+        seen.add(ch)
+
+        if right - left + 1 > best_len:
+            best_len = right - left + 1
+            best_start = left
+
+    return s[best_start:best_start + best_len]
+
+print(lon_substring("abcabcbb"))
 
 
 

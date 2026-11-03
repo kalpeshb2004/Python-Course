@@ -1,22 +1,14 @@
-num1 = int(input("Enter a first number: "))
-num2 = int(input("enter a second number: "))
+str1 = "good morning"
+print(str1[2:5])
 
-choice = input("enter a choice that you want to perform (+ - * / % ** //):- ")
+class employee:
+    def __init__(self,employeeID , name):
+        self.employeeID = employeeID
+        self.name = name
 
-match choice:
-    case "+":
-        print("addition is :" ,num1 + num2)
-    case "-":
-        print("sustraction is :" ,num1 - num2)    
-    case "*":
-        print("multiplication is :" ,num1 * num2)
-    case "/":
-        print("devision is :" ,num1 / num2)        
-    case "%":
-        print("reminder is :" ,num1 % num2)    
-    case "**":
-        print("square is :" ,num1 ** num2)  
-    case "//":
-        print("floar devision is :" ,num1 // num2)      
-    case _:
-        print("invalid case")    
+    def show(self):
+        print("employeeId : " , self.employeeID)
+        print("name : " ,self.name)
+
+e = employee(101,"kalpesh")
+e.show()
