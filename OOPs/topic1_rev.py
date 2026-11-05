@@ -162,8 +162,39 @@ print(employee.is_workday("monday"))
 print(employee.is_workday("saturday"))
 
 
+a = [1,2,2,3,45,44,4,4,4,5]
+print(list(dict.fromkeys(a)))
 
 
+def duplicate(arr):
+    slow = []
+    for fast in range(len(arr)):
+        if arr[fast] not in slow:
+            slow.append(arr[fast])
+    return slow
+print(duplicate([11,11,2,2,2,2,3,4,4,5,4]))
 
-    
-    
+def frequency(lst):
+    freq = {}
+    for ch in lst:
+        freq[ch] = freq.get(ch,0) + 1
+    return freq
+
+print(frequency([11,11,2,2,2,2,3,4,4,5,4]))
+
+# Do list ke common elements nikaal.
+def common(lst1,lst2):
+    lst11 = set(lst1)
+    lst22 = set(lst2)
+    return (lst11 & lst22)
+print(common([1,1,1,2,2,2,3,3,3,4,4,4],[1,1,1,2,2,2]))
+
+dict2 = {"name" : "kalpesh"}
+dict3 = {"city" : "jayesh"}
+new_dict = dict2 | dict3
+print({**dict2,**dict3})
+print(new_dict)
+dict2.update(dict3)
+print(dict2)
+
+
