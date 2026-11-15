@@ -130,5 +130,3 @@ def sort_sqr(arr):
 print(sort_sqr([-5,-3,0,2,4]))
 
 
-
-

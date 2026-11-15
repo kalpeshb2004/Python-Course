@@ -54,7 +54,7 @@ def num_reverse(num):
 print(num_reverse(12345))
 print(num_reverse(1211))
 
-
+# 2 to 20 prime number  
 for i in range(2,20):
     for j in range(2,int(i ** 0.5) + 1):
         if i % j == 0:
@@ -62,17 +62,20 @@ for i in range(2,20):
     else:
         print(i)
 
+# total 20 numbers fibonicci series
 a,b = 0,1
 for i in range(20):
     print(a,end=" ")
     a = b
     b = a + b
 
+# up to 20 fibonicci series 
 a,b = 0,1
 while a <= 20:
     print(a,end=" ")
     a ,b = b, a + b
 
+# perfect numvber
 def perfect(num):
     total = 0
     for i in range(1,num):
@@ -311,9 +314,40 @@ def two_sum(arr,target):
     return -1
 print(two_sum([1,2,3,2,4,5,1],7))
 
+# # armstrong
+# input : 153
+# output : True (3 digit hain, 1³ + 5³ + 3³ = 1 + 125 + 27 = 153)
 
-        
+def armstrong(num):
+    original = num
+    power = len(str(num))
+    total = 0
 
+    while num > 0:
+        digit = num % 10 
+        total += digit ** power
+        num //= 10
+
+    return total == original
+print(armstrong(153))
+
+# GCD 
+def GCD(a,b):
+    while b != 0:
+        a,b = b , a % b
+    return a
+print(GCD(12,18))
+
+# Input: 4, 6 → Output: 12 (4 ke multiples: 4, 8, 12... 6 ke: 6, 12... pehla common 12)
+
+def LCM(a,b):
+    big = max(a,b)
+    num = big
+
+    while num % a != 0 or num % b != 0:
+        num += big
+    return num
+print(LCM(4,6))
 
 
             
