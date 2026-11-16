@@ -80,6 +80,17 @@ def duplicates(arr):
 
 print(duplicates([1,2,3,2,4,1]))
 
+# remove duplicates 
+def remove_duplicates1(arr):
+    seen = set()
+    result = []
+    for x in arr:
+        if x not in seen:
+            seen.add(x)
+            result.append(x)
+    return result
+print(remove_duplicates1([3,2,3,45,2,3,45,3]))
+
 6
 # Count frequency of each element — Har element kitni baar aaya, count karo.
 # Input: [1,2,2,3,3,3] → Output: {1:1, 2:2, 3:3}

@@ -350,9 +350,75 @@ def LCM(a,b):
 print(LCM(4,6))
 
 
+def prime(num):
+    if num <= 1:
+        return False
+    for i in range(2,int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+print(prime(15))
+print(prime(17))
+
+def second_largest(arr):
+    arr.sort()
+    return arr[-2]
+print(second_largest([2,4,2,5,2,6]))     
+
+# Remove duplicates from a sorted array (in-place)
+def remove_duplicates(arr):
+    slow = 0
+
+    for fast in range(len(arr)):
+        if arr[fast] not in arr[:slow]:
+            arr[slow] = arr[fast]
+            slow += 1
+    return arr[:slow]
+print(remove_duplicates([3,2,3,45,2,3,45,3]))
+
             
+def remove_duplicates1(arr):
+    seen = set()
+    result = []
+    for x in arr:
+        if x not in seen:
+            seen.add(x)
+            result.append(x)
+    return result
+print(remove_duplicates1([3,2,3,45,2,3,45,3]))
 
 
+# Reverse-Sum Number. 128 → 128 + 821 = 949, palindrome hai → True.
+def reverseSum(num):
+    result = 0
+    original = num
+    while num > 0:
+        digit = num % 10
+        result = result * 10 + digit
+        num //= 10
+
+    total = original + result
+    result1 = 0
+    original1 = total
+    while total > 0:
+        digit = total % 10
+        result1 = result1 * 10 + digit
+        total //= 10
+    return result1 == original1
+
+print(reverseSum(128))
+print(reverseSum(352))
+print(reverseSum(1000))
+
+# 1. Factorial
+# Number se 1 tak sab numbers ko multiply karo.
+# Input: 5 → Output: 120
+def factorial(num):
+    fact = 1
+    for i in range(1,num+1):
+        fact = fact * i
+    return fact
+print(factorial(5))
 
 
 
